@@ -3,10 +3,9 @@
 """
 Author: Catarina Loureiro
 
-A script to build itol databases with EL drepc50 bins
+A script to build itol databases with dREP representative bin quantification
 """
 
-import os
 import argparse
 import pandas as pd
 import numpy as np
@@ -18,16 +17,12 @@ def get_cmds():
         """
 
         parser = argparse.ArgumentParser(description='')
-
-        parser.add_argument('-q', '-quant', dest='quant', help='EL refined bin quant',\
+        parser.add_argument('-q', '-quant', dest='quant', help='all bin quantification',\
                 required=True, metavar='<file>')
-
-        parser.add_argument('-d', '-drep', dest='drep', help='drep sps avg',\
+        parser.add_argument('-d', '-drep', dest='drep', help='drep clusters',\
                  required=True, metavar='<file>')
-
         parser.add_argument('-i', '-ind', dest='ind', help='output table individual',\
                  required=True, metavar='<file>')
-
         parser.add_argument('-s', '-scaled', dest='scaled', help='output scaled table individual',\
                 required=True, metavar='<file>')
 
@@ -35,7 +30,7 @@ def get_cmds():
 
 def parse_ELbinquant(binquant_file):
         """
-        parse EL binquant file to extract links and individuals
+        parse binquant file to extract links and individuals
 
         binquant_file: str, path
         inds_list: list[str], individuals
@@ -91,6 +86,7 @@ def parse_drep(drep_file):
         """
         parse drep_spsavg file to extract drep cluster structure
 
+        drep_file: str, path
         drep_dict: dict{rep:[bins]}
         """
 
@@ -112,6 +108,7 @@ def write_output(out_df_file, binquant_dict, inds_list, drep_dict):
         inds_list: list[str], individuals
         binquant_dict: dict{bin:quant}
         drep_dict: dict{rep:[bins]}
+        out_df_file: str, path
         """
 
         matrix = [[0]*len(inds_list) for i in range(len(drep_dict.keys()))]
