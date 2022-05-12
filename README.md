@@ -42,10 +42,10 @@ python3 extract_hkgcds_coords.py -d /MAGs_hmmscan_out/ -p hkg_pfams.txt -o /hkg_
 
 calculate metrics for hkgs and bgcs (avg_cov, min_cov, max_cov, percent_cov, tpm, rpkm)
 ```
-python3 hkg_metat_metrics.py -b /hkg_bedgraphs/ -l MAG_names.txt -p /hkg_bedfiles/ -o hkg_metrics.tsv
+python3 hkg_metat_metrics.py -b /hkg_sorted_count_files/ -l MAG_names.txt -p /hkg_bedgraphfiles/ -o hkg_metrics.tsv
 ```
 ```
-python3 bgc_metat_metrics.py -c /BiG-MAP/bowtie2-raw-counts -b /BiG-MAP/bedtools-results -l BGC_headers.txt -o BGC_metrics.tsv
+python3 bgc_metat_metrics.py -c /bgc_sorted_count_files/ -b /bgc_bedgraphfiles/ -l BGC_headers.txt -o BGC_metrics.tsv
 ```
 
 ### Process BiG-MAP, dRep & GTDK-tk outputs to generate BGG/GCF annotations & iTOL datasets

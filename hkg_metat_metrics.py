@@ -273,25 +273,10 @@ if __name__ == '__main__':
                 file_pairing = os.path.join(cmds.pfam, pairing_name)
                 bg_name = bin+'_'+sample+'.sorted.bg'
                 file_bedgraph = os.path.join(cmds.bg, bg_name)
-                counts_name = bin+'_'+sample+'.hkgcds.sorted.aln.count'
+                counts_name = bin+'_'+sample+'.hkgcds.sorted.count'
                 file_counts = os.path.join(cmds.bg, counts_name)
-
-                print(bin, sample)
-                print(pairing_name, bg_name)
-                print(file_pairing)
-                print(file_bedgraph)
-                print(file_counts)
-
                 dict_pairings = get_pfam_node(file_pairing)
-                print(dict_pairings)
-
                 dict_bedgraph = parse_bedgraph(file_bedgraph, dict_pairings)
-                print(dict_bedgraph)
-
                 dict_TPM = calc_TPM(file_counts,dict_pairings)
-                print(dict_TPM)
-
                 dict_RPKM = calc_RPKM(file_counts,dict_pairings)
-                print(dict_RPKM)
-
                 write_output(dict_bedgraph, bin, cmds.out, pfam_list,dict_TPM,dict_RPKM)
