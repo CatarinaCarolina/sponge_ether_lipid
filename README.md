@@ -1,6 +1,6 @@
-This is the Github repository for the scrips and input files used to perform the analysis described in the following project: "PhD thesis chapter 3- Ether lipid diversity in marine sponges"
+## This is the Github repository for the scrips and input files used to perform the analysis described in the following project: "PhD thesis chapter 3- Ether lipid diversity in marine sponges"
 
-## Requirements:
+### Requirements:
 
 Please keep in mind that these scripts have only been tested in python3.
 
